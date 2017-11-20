@@ -33,11 +33,6 @@ __LINE__,   \
 #define HQLogInfo(frmt, ...)
 #endif
 
-/** 屏幕尺寸 */
-#define SCREEN_TOP (20.0f+44.0f)
-#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
-#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
-
 /** 16进制 颜色转换 */
 #define COLOR_WITH_HEX(HEX) [UIColor colorWithRed:((HEX & 0xFF0000) >> 16)/255.0 green:((HEX & 0xFF00) >> 8)/255.0 blue:(HEX & 0xFF)/255.0 alpha:1]
 #define COLOR_WITH_HEX_ALPHA(HEX,ALPHA) [UIColor colorWithRed:((HEX & 0xFF0000) >> 16)/255.0 green:((HEX & 0xFF00) >> 8)/255.0 blue:(HEX & 0xFF)/255.0 alpha:ALPHA]
@@ -79,6 +74,15 @@ __LINE__,   \
 /** 屏幕类型 */
 #define IPHONE4  (SCREEN_HEIGHT == (480))
 #define IPHONE6P (SCREEN_HEIGHT == (736))
+#define IPHONEX  (SCREEN_HEIGHT == (812))
+
+/** 屏幕尺寸 */
+#define SCREEN_STATUS (IPHONEX?44.0f:20.0f)
+#define SCREEN_TABBAR (IPHONEX?83.0f:49.0f)
+
+#define SCREEN_TOP (SCREEN_STATUS+44.0f)
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
 /** GCD的同步封装 */
 #define ASYNC_START  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
