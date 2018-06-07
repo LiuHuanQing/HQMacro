@@ -102,4 +102,14 @@ __LINE__,   \
         dispatch_async(dispatch_get_main_queue(), block);\
     }
 
+
+#define HQDesignBaseWidth  414.0
+#define HQDesignBaseHeight 736.0
+
+#define HQScreenWidthRatio  (SCREEN_WIDTH / HQDesignBaseWidth)
+#define HQScreenHeightRatio  (SCREEN_HEIGHT / HQDesignBaseHeight)
+
+#define HQRectMake(x, y, width, height) CGRectMake(x * HQScreenWidthRatio, y * HQScreenHeightRatio, width * HQScreenWidthRatio, height * HQScreenHeightRatio)
+
+#define HQSizeMake(width, height) CGSizeMake(width * HQScreenWidthRatio, height * HQScreenHeightRatio)
 #endif /* HQMacro_h */
