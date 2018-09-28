@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "HQMacro"
-  s.version      = "1.0.1"
+  s.version      = "1.0.3"
   s.summary      = "HQMacro"
   s.description  = <<-DESC
   HQMacro.

@@ -103,13 +103,19 @@ __LINE__,   \
     }
 
 
-#define HQDesignBaseWidth  414.0
-#define HQDesignBaseHeight 736.0
+#ifdef HQ_DESIGN_2x
+#define HQDesignBaseWidth  375.0f
+#define HQDesignBaseHeight 667.0f
+#else
+#define HQDesignBaseWidth  414.0f
+#define HQDesignBaseHeight 736.0f
+#endif
+
 
 #define HQScreenWidthRatio  (SCREEN_WIDTH / HQDesignBaseWidth)
-#define HQScreenHeightRatio  (SCREEN_HEIGHT / HQDesignBaseHeight)
+#define HQScreenHeightRatio  HQScreenWidthRatio
 
-#define HQRectMake(x, y, width, height) CGRectMake(x * HQScreenWidthRatio, y * HQScreenHeightRatio, width * HQScreenWidthRatio, height * HQScreenHeightRatio)
+#define HQRectMake(x, y, width, height) CGRectMake((x) * HQScreenWidthRatio, (y) * HQScreenHeightRatio, (width) * HQScreenWidthRatio, (height) * HQScreenHeightRatio)
 
 #define HQSizeMake(width, height) CGSizeMake(width * HQScreenWidthRatio, height * HQScreenHeightRatio)
 #endif /* HQMacro_h */
